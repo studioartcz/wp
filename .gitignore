@@ -1,18 +1,30 @@
-*.log
-wp-config.php
-wp-content/advanced-cache.php
-wp-content/backup-db/
-wp-content/backups/
-wp-content/blogs.dir/
-wp-content/cache/
-wp-content/upgrade/
-wp-content/uploads/
-wp-content/wp-cache-config.php
-wp-content/plugins/hello.php
+# phpStorm
+.idea/
 
-/.htaccess
-/license.txt
-/readme.html
-/sitemap.xml
-/sitemap.xml.gz
+# Application
+public/app/plugins/*
+!public/app/plugins/.gitkeep
+public/app/mu-plugins/*/
+!public/app/mu-plugins/toret-fio
+public/app/upgrade
+public/app/uploads/*
+!public/app/uploads/.gitkeep
 
+# WordPress
+public/wp
+public/wp-config.php
+
+# WP-CLI
+db-sync
+sql-dump-*.sql
+
+# Vendor (e.g. Composer)
+vendor/*
+!vendor/.gitkeep
+
+# Node Package Manager
+node_modules
+
+# Vagrant
+bin
+.vagrant

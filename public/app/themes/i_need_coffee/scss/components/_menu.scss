@@ -1,0 +1,41 @@
+.nav {
+
+  li {
+    &.icon {
+
+      a {
+        color: #FFFFFF;
+      }
+
+      .icon-fa {
+        @include fa-icon();
+      }
+
+      span {
+        display: none;
+      }
+
+    }
+  }
+}
+
+.site {
+
+  &__nav {
+
+    a {
+
+      &:hover {
+        background: red;
+        color: blue;
+      }
+
+      i {
+        font-size: 2rem;
+      }
+
+    }
+
+  }
+
+}

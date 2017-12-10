@@ -1,0 +1,73 @@
+.post {
+  width: $post-width;
+  margin: 0 auto;
+  position: relative;
+  font-family: $font-main;
+
+  &__date {
+    margin: -2em 0 0 0;
+    background: $color-base-borders;
+
+    span {
+      text-align: center;
+      font-size: 0.9em;
+    }
+  }
+
+  &__title {
+    margin-top: 1em;
+    text-align: center;
+  }
+
+  &__body {
+    padding: 3em 3em 1em 3em;
+  }
+
+
+  &:after {
+    display: none;
+    content: "";
+    width: 90%;
+    height: 1px;
+    margin: 0 auto;
+    background: blue;
+  }
+
+}
+
+.info {
+    width: 90%;
+    padding: 1em;
+    margin: 1em 3em 3em 3em;
+    border: 1px solid $color-base-borders;
+
+    span {
+      text-transform: uppercase;
+      font-size: 0.8em;
+      font-weight: bold;
+      color: $color-info;
+    }
+
+    &__share-title {
+    }
+
+    &__channels {
+      a {
+        text-align: center;
+        color: #000;
+
+        &:hover {
+          color: $color-share-icons;
+        }
+      }
+    }
+
+  }
+
+  .comment-box {
+    margin: 0 -2em -2em -2em;
+    padding: 2em;
+    overflow: hidden;
+    background: $color-comments;
+  }
+

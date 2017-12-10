@@ -1,0 +1,20 @@
+//
+//  custom variables
+//
+@import "variables";
+
+//
+//  dependencies
+//
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/font-awesome/scss/font-awesome";
+
+//
+//  styles in one file
+//
+@import "base";
+
+//
+//  custom fonts
+//
+//@import '../fonts/google/_fonts.css';

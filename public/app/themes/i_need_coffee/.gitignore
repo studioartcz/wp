@@ -1,0 +1,9 @@
+node_modules
+build/*
+gulp-local-config.json
+vendor
+wp-content
+bower_components
+build/css/*.css
+build/js/*.js
+local-gulp-config.json

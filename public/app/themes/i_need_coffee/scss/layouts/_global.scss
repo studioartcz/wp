@@ -1,0 +1,60 @@
+//
+//  web-wide shared styles about layout
+//
+
+.primary-menu-container {
+  background: #3d3d3d;
+}
+
+.site {
+
+  &__header {
+    padding: 2em 0 0 0;
+    text-align: center;
+    background: #2d2d2d;
+    color: #fafafa;
+  }
+
+  &__author {
+    padding: 1em 0 1em 0;
+
+
+    &-title {
+
+    }
+
+    &-description {
+
+    }
+
+  }
+
+  &__nav {
+    width: 25em;
+    margin: 0 auto;
+  }
+
+  &__content {
+    margin: 0 auto;
+    padding: 4em 0 15em;
+    background: $color-base-borders url('https://www.stikarmichal.cz/wp-content/uploads/2017/09/DSC_0573-1.jpg');
+    background-attachment: fixed;
+  }
+}
+
+
+.footer {
+  width: 100%;
+  background: #2d2d2d;
+  color: #fafafa;
+  text-align: center;
+  padding: 30px 0;
+
+  a {
+    color: #fafafa;
+  }
+
+  &__copy {  }
+
+  &__created {  }
+}

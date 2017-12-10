@@ -1,0 +1,20 @@
+//
+//  merge all styles to the one
+//
+
+//
+//  layouts
+//
+@import "layouts/global";
+@import "layouts/homepage";
+@import "layouts/article";
+
+//
+//  components
+//
+@import "components/article";
+@import "components/menu";
+
+//
+//  pages - content
+//

@@ -1,0 +1,48 @@
+{% spaceless %}
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+
+		{% block header %}
+		<header class="site__header" role="banner">
+			
+			<div class="site__author">
+				<div class="container">
+					<div class="site__author-title">{{ site.name }}</div>
+					<div class="site__author-description">{{ site.description }}</div>
+				</div>
+			</div>
+
+			<nav class="site__nav">
+			  {% include "menu.twig" with {'menu': menu.get_items} %}
+			</nav>
+
+		</header>
+		{% endblock %}
+
+		<section id="content" role="main" class="site__content content-wrapper">
+			<div class="wrapper container {{sidebar_class}}">
+				{% block content %}
+					{% if title %}<h1>{{title}}</h1>{% endif %}
+					<div class="alert alert-warning">Sorry, no content</div>
+				{% endblock %}
+			</div>
+			{% if sidebar %}
+				<aside class="layout-sidebar">
+					{{sidebar}}
+				</aside>
+			{% endif %}
+		</section>
+
+		{% block footer %}
+			{% include 'footer.twig' %}
+			{{ function('wp_footer') }}
+		{% endblock %}
+	</body>
+</html>
+{% endspaceless %}

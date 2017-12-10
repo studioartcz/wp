@@ -1,0 +1,32 @@
+//
+//  dependencies
+//  note: this variables should be used, overrided
+//
+//@import "../node_modules/bootstrap/scss/variables";
+//@import "../node_modules/font-awesome/scss/variables";
+
+
+//
+//  overrides of dependencies variables
+//
+
+//  font-awesome
+$fa-font-path:                      "../fonts/font-awesome/";
+
+// bootstrap
+$link-color:                        blue;
+$nav-link-padding-y:                1rem;
+$nav-link-padding-x:                1rem;
+
+//
+//  defile all variables
+//
+$fonts-folder:                      "../fonts/";
+$font-icon:                         "FontAwesome";
+$color-base-background:             #FFF;
+$color-base-borders:                darken($color-base-background, 10%);
+$color-info:                        darken($color-base-background, 35%);
+$color-share-icons:                 darken($color-base-background, 35%);
+$color-comments:                    darken($color-base-background, 1%);
+$post-width:                        780px;
+$font-main:                         'Open Sans', sans-serif;

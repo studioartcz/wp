@@ -1,0 +1,83 @@
+{
+    "name": "studioartcz/wp",
+    "description": "Composer based stack for Wordpress",
+    "type": "project",
+    "private": true,
+    "authors": [
+        {
+            "name": "Michal Landsman",
+            "email": "landsman@studioart.cz"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/studioartcz/wp/issues"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "optimize-autoloader": true
+    },
+    "repositories":[
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "johnpbloch/wordpress": "^4.9",
+        "roots/wp-password-bcrypt": "^1.0",
+        "wpackagist-plugin/admin-menu-editor": "^1.7",
+        "wpackagist-plugin/advanced-custom-fields": "^4.4",
+        "wpackagist-plugin/maintenance": "^3.5",
+        "wpackagist-plugin/metronet-tag-manager": "^1.2",
+        "wpackagist-plugin/wp-sentry-integration": "dev-trunk",
+        "wpackagist-plugin/wp-tracy": "^1.0",
+        "wpackagist-plugin/timber-library": "^1.3",
+        "wpackagist-plugin/wp-super-cache": "~1.4",
+        "wpackagist-plugin/disqus-comment-system": "^2.8",
+        "dg/composer-cleaner": "^1.1"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.0.2",
+        "symfony/finder": "^3.2",
+        "symfony/console": "^3.2",
+        "symfony/filesystem": "^3.2",
+        "dg/ftp-deployment": "^2.7"
+    },
+    "extra": {
+        "installer-paths": {
+            "public/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+            "public/app/plugins/{$name}/": ["type:wordpress-plugin"],
+            "public/app/themes/{$name}/": ["type:wordpress-theme"]
+        },
+        "wordpress-install-dir": "public/wp"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ]
+    },
+    "scripts": {
+        "clean-before-deploy": [
+            "echo Warning: Deleting all .git dirs under vendor ",
+            "rm -rf vendor/**/**/.git",
+            "rm -rf public/wp/wp-content/themes/*"
+        ],
+        "build-theme": [
+            "StudioArtcz\\composer\\ScriptHandler::deployThemes"
+        ],
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ],
+        "post-install-cmd": [
+            "@clean-before-deploy"
+        ],
+        "post-update-cmd": [
+            "@clean-before-deploy"
+        ],
+        "test": [
+            "vendor/bin/phpcs"
+        ]
+    }
+}

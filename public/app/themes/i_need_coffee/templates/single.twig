@@ -1,0 +1,88 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+
+			<section class="text">
+
+				<div class="post__date">
+					<span>{{ post.post_date|date }}</span>
+				</div>
+
+				<div class="post__title">
+					<h1>{{ post.title }}</h1>
+				</div>
+
+				<div class="post__body">
+					{{ post.content }}
+				</div>
+
+			</section>
+
+			<section class="tags">
+				<!-- todo -->
+			</section>
+
+			<section class="info">
+
+				<div class="row">
+
+					<div class="info__share-title col-sm-12 col-md-2 text-sm-center text-md-left">
+						<span class="align-middle">Sdílet příspěvek</span>
+					</div>
+
+					<div class="info__channels col-sm-12 col-md-3 text-sm-center text-lg-right">
+
+						<div class="row">
+							<a class="col" href="//www.facebook.com/sharer/sharer.php?{{ {'u': post.link, 't': post.title }|url_encode }}" target="_blank" title="Sdílet na Facebook" data-toggle="tooltip">
+								<i class="fa fa-facebook" aria-hidden="true"></i>
+							</a>
+
+							<a class="col" href="//twitter.com/home?{{ {'text': post.title, 'url': post.link, 'via': 'stikar_michal' }|url_encode }}" target="_blank" title="Tweetnout" data-toggle="tooltip">{# todo: here can be hashtags support from post tags #}
+								<i class="fa fa-twitter" aria-hidden="true"></i>
+							</a>
+
+							<a class="col" href="//www.linkedin.com/shareArticle?{{ {'mini': true, 'url': post.link, 'title': post.title}|url_encode }}" target="_blank" title="Sdílet na Linkedin" data-toggle="tooltip">
+								<i class="fa fa-linkedin" aria-hidden="true"></i>
+							</a>
+
+							<a class="col" href="http://pinterest.com/pin/create/button/?{{ {'url': post.link, 'title': post.title}|url_encode }}" target="_blank" title="Připnout na Pinterest" data-toggle="tooltip">
+								<i class="fa fa-pinterest" aria-hidden="true"></i>
+							</a>
+						</div>
+
+					</div>
+
+				</div>
+
+			</section>
+
+			<section class="another">
+				<!-- another articles -->
+			</section>
+
+    		<!-- comment box -->
+            <section class="comment-box">
+
+                <!-- comments -->
+                <div class="comments">
+                    {% if post.comments %}
+                        <h3> comments </h3>
+                        {% for cmt in post.comments %}
+                            {% include "comment.twig" with {comment:cmt} %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+                {% if post.comment_status == "closed" %}
+					<div class="alert alert-info">comments for this post are closed</div>
+				{% else %}
+                    <!-- comment form -->
+                    {% include "comment-form.twig" %}
+                {% endif %}
+
+            </section>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}
